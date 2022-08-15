@@ -10,11 +10,17 @@
 			<a class="btn btn-primary  btn-sm btn-block" href="">Créer Un Client</a>
 			<table class="table table-sm">
 				<tr>
-					<th></th>
-					<th>Clients</th>
-					<th>Commandes</th>
+					<th>ID</th>
+					<th>Client</th>
+					<th>Telephone</th>
 				</tr>
-
+				{% for client in clients %}
+				<tr>
+					<th>  {{ client.id}}	</th>
+					<th>  {{ client.nom}}	</th>
+					<th>  {{ client.telephone}}	</th>
+				</tr>  
+				{% endfor %}
 			</table>
 		</div>
 	</div>
@@ -27,12 +33,25 @@
 			<table class="table table-sm">
 				<tr>
 					<th>Produit</th>
-					<th>Date de la commande</th>
+					<th>Client</th>
+					<th>Date</th>
 					<th>Status</th>
 					<th>Mise à Jour</th>
 					<th>Supprimer</th>
 				</tr>
 
+				{% for commande in commandes %}
+
+				<tr>
+					<th>{{commande.produit}}</th>
+					<th>{{commande.client}}</th>
+					<th>{{commande.date_creation}}</th>
+					<th>{{commande.status}}</th>
+					<th><a href =  ''>  Mettre à jour </a>	</th>
+					<th><a href =  ''> Supprimer</a></th>
+				</tr>
+				
+				{% endfor %}
 			</table>
 		</div>
 	</div>
