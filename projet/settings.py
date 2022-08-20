@@ -40,7 +40,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'produit',
     'client',
-    'commande'
+    'commande',
+    'django_filters',
 ]
 
 MIDDLEWARE = [
