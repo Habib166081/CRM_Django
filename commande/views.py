@@ -3,14 +3,15 @@ from django.shortcuts import render,redirect
 from django.http import HttpResponse
 from .forms import CommandeForm
 from .models import Commande
+from django.contrib.auth.decorators import login_required
 
 
 # Create your views here.
-
+@login_required(login_url='acces')
 def list_commande(request):
     return render(request,'commande/list_commande.html')
 
-
+@login_required(login_url='acces')
 def ajouter_commande(request):
     form = CommandeForm()
     if request.method =='POST':
@@ -22,7 +23,7 @@ def ajouter_commande(request):
 
     return render(request, 'commande/ajouter_commande.html',context)
 
-
+@login_required(login_url='acces')
 def modifier_commande(request,pk):
     commande=Commande.objects.get(id=pk)
     form=CommandeForm(instance=commande)

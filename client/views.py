@@ -1,10 +1,11 @@
 from django.shortcuts import render
 from .models import Client
 from commande.filter import CommandeFiltre
+from django.contrib.auth.decorators import login_required
 
 
 # Create your views here.
-
+@login_required(login_url='acces')
 def list_client(request,pk):
     client = Client.objects.get(id=pk)
     commande = client.commande_set.all()

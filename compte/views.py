@@ -1,7 +1,7 @@
 from django.shortcuts import render,redirect
 from django.contrib.auth.forms import UserCreationForm
 from .forms import CreerUtilisateur
-from django.contrib.auth import authenticate,login
+from django.contrib.auth import authenticate,login, logout
 from django.contrib import messages
 
 # Create your views here.
@@ -32,4 +32,11 @@ def accesPage(request):
             messages.info(request,"Il y a une erreur dans le nom d'utilisateur et/ou Mot de passe")
 
     return render(request,'compte/acces.html',context)
+
+
+
+
+def logoutUser(request):
+    logout(request)
+    return redirect('acces')
     
